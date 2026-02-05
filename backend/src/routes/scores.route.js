@@ -1,23 +1,38 @@
 import express from "express";
 import fetch from "node-fetch";
+// import your auth middleware if you have one
+// import authMiddleware from "../middleware/auth.js";
 
 const router = express.Router();
 
-const OPENSHEET_URL ="https://opensheet.elk.sh/1JgzKxAA9b-1oB0MovvvfCEtra1xu_aKigTiHuyd_wAI/Sheet1";
+const OPENSHEET_URL = "https://opensheet.elk.sh/YOUR_SHEET_ID/IPL_SCORES";
 
-router.get("/", async (req, res) => {
-    try {
-        const response = await fetch(OPENSHEET_URL);
-        const data = await response.json();
+let cache = null;
+let cacheTime = 0;
+const CACHE_TTL = 10000; // 10 seconds
 
-        res.json({
-            source: "manual",
-            updatedAt: new Date(),
-            matches: data
-        });
-    } catch (error) {
-        res.status(500).json({ error: "Failed to fetch scores" });
-    }
+router.get("/scores", /* authMiddleware, */ async (req, res) => {
+  const now = Date.now();
+
+  if (cache && now - cacheTime < CACHE_TTL) {
+    return res.json(cache);
+  }
+
+  try {
+    const response = await fetch(OPENSHEET_URL);
+    const data = await response.json();
+
+    cache = {
+      matches: data,
+      updatedAt: new Date()
+    };
+    cacheTime = now;
+
+    res.json(cache);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch scores" });
+  }
 });
 
 export default router;

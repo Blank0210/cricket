@@ -8,7 +8,7 @@ function ScoreCardComponent() {
     useEffect(() => {
         const fetchScores = async () => {
             try {
-                const res = await fetch("http://localhost:3000/api/scores");
+                const res = await fetch("/api/scores");
                 const data = await res.json();
 
                 console.log("API RESPONSE:", data);
@@ -22,7 +22,7 @@ function ScoreCardComponent() {
         };
 
         fetchScores();
-        const interval = setInterval(fetchScores, 30000);
+        const interval = setInterval(fetchScores, 15000);
         return () => clearInterval(interval);
     }, []);
 
