@@ -5,15 +5,21 @@ import HomePage from "./pages/HomePage";
 import MyMatches from "./pages/MyMatches";
 import ProfilePage from "./pages/ProfilePage";
 import HistoryPage from "./pages/HistoryPage";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
   return (
     <div className="pb-16">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          {/* <Route path="/login" element={<LoginPage />} /> */}
-          <Route path="/mymatches" element={<MyMatches />} />
+          {/* <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
+          <Route path="/mybets" element={<ProtectedRoute><MyMatches /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>}/>
+          <Route path="/rewards" element={<ProtectedRoute><HistoryPage /></ProtectedRoute>}/> */}
+
+          <Route path="/" element={<HomePage />}/>
+          <Route path="/mybets" element={<MyMatches />}/>
           <Route path="/profile" element={<ProfilePage />}/>
           <Route path="/rewards" element={<HistoryPage />}/>
         </Routes>

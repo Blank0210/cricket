@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 
- function MatchAmountComponent() {
+function MatchAmountComponent() {
 
     const [matches, setMatches] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -9,12 +9,57 @@ import { useEffect, useState } from "react";
     useEffect(() => {
         // Mock data
         const data = [
-            { id: 1, team1: "RR", team2: "KKR", amountbet: 1000, finalAmount: 1200 },
-            { id: 2, team1: "CSK", team2: "MI", amountbet: 1000, finalAmount: 1200 },
-            { id: 3, team1: "RCB", team2: "SRH", amountbet: 1000, finalAmount: 1200 },
-            { id: 4, team1: "KXIP ", team2: "LSG", amountbet: 1000, finalAmount: 1200 },
-            { id: 5, team1: "DC", team2: "KKR", amountbet: 1000, finalAmount: 1200 },
-            { id: 6, team1: "GT", team2: "SRH", amountbet: 1000, finalAmount: 1200 },
+            { id: 1, team1: "PAKISTAN", team2: "NETHERLANDS", date: "7 February", time: "11:00" },
+            { id: 2, team1: "WEST INDIES", team2: "SCOTLAND", date: "7 February", time: "15:00" },
+            { id: 3, team1: "INDIA", team2: "USA", date: "7 February", time: "19:00" },
+
+            { id: 4, team1: "NEW ZEALAND", team2: "AFGHANISTAN", date: "8 February", time: "11:00" },
+            { id: 5, team1: "ENGLAND", team2: "NEPAL", date: "8 February", time: "15:00" },
+            { id: 6, team1: "SRI LANKA", team2: "IRELAND", date: "8 February", time: "19:00" },
+
+            { id: 7, team1: "SCOTLAND", team2: "ITALY", date: "9 February", time: "11:00" },
+            { id: 8, team1: "ZIMBABWE", team2: "OMAN", date: "9 February", time: "15:00" },
+            { id: 9, team1: "SOUTH AFRICA", team2: "CANADA", date: "9 February", time: "19:00" },
+
+            { id: 10, team1: "NETHERLANDS", team2: "NAMBIA", date: "10 February", time: "11:00" },
+            { id: 11, team1: "NEW ZEALAND", team2: "UAE", date: "10 February", time: "15:00" },
+            { id: 12, team1: "PAKISTAN", team2: "USA", date: "10 February", time: "19:00" },
+
+            { id: 13, team1: "SOUTH AFRICA", team2: "AFGHANISTAN", date: "11 February", time: "11:00" },
+            { id: 14, team1: "AUSTRALIA", team2: "IRELAND", date: "11 February", time: "15:00" },
+            { id: 15, team1: "ENGLAND", team2: "WEST INDIES", date: "11 February", time: "19:00" },
+
+            { id: 16, team1: "SRI LANKA", team2: "OMAN", date: "12 February", time: "11:00" },
+            { id: 17, team1: "NEPAL", team2: "ITALY", date: "12 February", time: "15:00" },
+            { id: 18, team1: "INDIA", team2: "NAMBIA", date: "12 February", time: "19:00" },
+
+            { id: 19, team1: "AUSTRALIA", team2: "ZIMBABWE", date: "13 February", time: "11:00" },
+            { id: 20, team1: "CANADA", team2: "UAE", date: "13 February", time: "15:00" },
+            { id: 21, team1: "USA", team2: "NETHERLANDS", date: "13 February", time: "19:00" },
+
+            { id: 22, team1: "IRELAND", team2: "OMAN", date: "14 February", time: "11:00" },
+            { id: 23, team1: "ENGLAND", team2: "SCOTLAND", date: "14 February", time: "15:00" },
+            { id: 24, team1: "NEW ZEALAND", team2: "SOUTH AFRICA", date: "14 February", time: "19:00" },
+
+            { id: 25, team1: "WEST INDIES", team2: "NEPAL", date: "15 February", time: "11:00" },
+            { id: 26, team1: "USA", team2: "NAMBIA", date: "15 February", time: "15:00" },
+            { id: 27, team1: "INDIA", team2: "PAKISTAN", date: "15 February", time: "19:00" },
+
+            { id: 28, team1: "AFGHANISTAN", team2: "UAE", date: "16 February", time: "11:00" },
+            { id: 29, team1: "ENGLAND", team2: "ITALY", date: "16 February", time: "15:00" },
+            { id: 30, team1: "AUSTRALIA", team2: "SRI LANKA", date: "16 February", time: "19:00" },
+
+            { id: 31, team1: "NEW ZEALAND", team2: "CANADA", date: "17 February", time: "11:00" },
+            { id: 32, team1: "IRELAND", team2: "ZIMBABWE", date: "17 February", time: "15:00" },
+            { id: 33, team1: "SCOTLAND", team2: "NEPAL", date: "17 February", time: "19:00" },
+
+            { id: 34, team1: "SOUTH AFRICA", team2: "UAE", date: "18 February", time: "11:00" },
+            { id: 35, team1: "PAKISTAN", team2: "NAMBIA", date: "18 February", time: "15:00" },
+            { id: 36, team1: "INDIA", team2: "NETHERLANDS", date: "18 February", time: "19:00" },
+
+            { id: 37, team1: "WEST INDIES", team2: "ITALY", date: "19 February", time: "11:00" },
+            { id: 38, team1: "SRI LANKA", team2: "ZIMBABWE", date: "19 February", time: "15:00" },
+            { id: 39, team1: "AFGHANISTAN", team2: "CANADA", date: "19 February", time: "19:00" },
         ];
 
         setTimeout(() => {

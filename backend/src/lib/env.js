@@ -1,7 +1,7 @@
-// import 'dotenv/config';
+import 'dotenv/config';
 
-// export const ENV = {
-    // PORT: process.ENV.PORT,
-    // MONGO_URI: process.ENV.MONGO_URI,
-    // JWT_SECRET: process.ENV.JWT_SECRET
-// } 
+export const ENV = {
+    MONGO_URI: process.env.MONGO_URI,
+    JWT_SECRET: process.env.JWT_SECRET || "your-secret-key-change-in-production",
+    NODE_ENV: process.env.NODE_ENV || "development"
+} 

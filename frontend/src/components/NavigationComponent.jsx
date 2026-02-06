@@ -18,9 +18,9 @@ function NavigationComponent() {
         </button>
 
         {/* My Matches */}
-        <button onClick={() => navigate("/mymatches") } className={`flex flex-col items-center text-xs font-medium 
+        <button onClick={() => navigate("/mybets") } className={`flex flex-col items-center text-xs font-medium 
         ${active === "matches" ? "text-blue-950" : "text-slate-100"}`}>
-          <span className="text-lg"><CircleGauge /></span>My Matches
+          <span className="text-lg"><CircleGauge /></span>My Bets
         </button>
 
         {/* History */}

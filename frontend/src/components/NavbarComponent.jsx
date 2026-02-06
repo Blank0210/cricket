@@ -1,21 +1,28 @@
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function NavbarComponent() {
     const navigate = useNavigate();
+    const { user } = useAuth();
 
     return (
-        <nav className="bg-slate-800 border-b border-slate-700 h-16 flex items-center justify-between px-6 sticky top-0 z-50">
+        <nav className="bg-slate-800 border-b border-slate-700 h-16 flex items-center justify-between px-6 top-0 z-50 relative">
 
-            {/* Middle - App Name */}
-            <div className="flex-1 flex justify-center">
+            {/* Middle - App Name (Centered) */}
+            <div className="absolute left-1/2 transform -translate-x-1/2">
                 <button onClick={() => { navigate("/"); }}
                 className="text-2xl font-bold text-white tracking-wider">
                     CBRICS
                 </button>
             </div>
 
-            {/* Right - Profile Symbol */}
-            <div className="flex items-center">
+            {/* Right - User Amount + Profile */}
+            <div className="flex items-center gap-6 ml-auto">
+                <div className="bg-yellow-400 text-black font-bold px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    ₹ {user?.amount || "0"}
+                </div>
+
+                {/* Profile Symbol */}
                 <button onClick={() => { navigate("/profile"); }}
                 className="w-10 h-10 rounded-full bg-linear-to-br from-blue-400 to-blue-600 flex items-center justify-center hover:shadow-lg hover:shadow-blue-500/50 transition-all cursor-pointer">
                     <span className="text-white font-semibold text-lg">👤</span>
